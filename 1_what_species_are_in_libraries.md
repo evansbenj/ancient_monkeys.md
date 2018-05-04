@@ -54,7 +54,7 @@ This was executed in this folder:
 /mnt/scratch/ben_evans/ancient_macaques/analyzed_runs/180502_G5925_Macaca
 ```
 
-and this folder contained a file called `180502_G5925_Macaca.txt` which has index information.  I'm not sure at what stage this information is needed
+and the commandline references a file called `180502_G5925_Macaca.txt` which has index information.  This was sent to me by Matthias.
 
 
 then this command queries these data bases; probably have to update the -db flag:
