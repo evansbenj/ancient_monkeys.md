@@ -45,11 +45,18 @@ This bam file is here:
 ```
 
 
-
 Then this command takes the mapped reads and blasts them against individual mtDNA genomes and identifies which one they match best.
 ```
 snakemake --jobs 48 -s ~frederic_romagne/MetaGen/metagen.p1.SnakeFile all --config bamfile=/mnt/ngs_data//180502_M02279_0260_000000000-BPCW5_BN_G5925/Bustard/BWA/proc1/s_1_sequence_ancient_TomiMtGENOMES.bam byfile=/mnt/scratch/ben_evans/ancient_macaques/analyzed_runs/180502_G5925_Macaca/180502_G5925_Macaca.txt && snakemake --jobs 48 -s ~frederic_romagne/MetaGen/metagen.p2.SnakeFile && snakemake --jobs 48 -s ~frederic_romagne/MetaGen/metagen.p3.SnakeFile
 ```
+This was executed in this folder:
+```
+/mnt/scratch/ben_evans/ancient_macaques/analyzed_runs/180502_G5925_Macaca
+```
+
+and this folder contained a file called `180502_G5925_Macaca.txt` which has index information.  I'm not sure at what stage this information is needed
+
+
 then this command queries these data bases; probably have to update the -db flag:
 ```
 /home/mmeyer/perlscripts/solexa/analysis/sediment_summary.pl -db /mnt/sediments/sediment_database.txt -mammal
