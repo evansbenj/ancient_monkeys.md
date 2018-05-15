@@ -59,6 +59,5 @@ and the commandline references a file called `180502_G5925_Macaca.txt` which has
 
 then this command queries these data bases; probably have to update the -db flag:
 ```
-/home/mmeyer/perlscripts/solexa/analysis/sediment_summary.pl -db /mnt/sediments/sediment_database.txt -mammal
- -query "180424" -reprocess
+/home/mmeyer/perlscripts/solexa/analysis/sediment_summary.pl -db /mnt/sediments/sediment_database.txt -mammal -query "180424" -reprocess
  ```
