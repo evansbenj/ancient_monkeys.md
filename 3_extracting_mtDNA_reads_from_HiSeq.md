@@ -4,3 +4,5 @@ To make the mtDNA paper more interesting, it would be useful to add the mtDNA ge
 ```
 samtools view -b input.bam "chrM" > output.bam
 ```
+
+The BQSR bam files are on goblin here: `/work/ben/2017_SEAsian_macaques/SEAsian_macaques_bam`
