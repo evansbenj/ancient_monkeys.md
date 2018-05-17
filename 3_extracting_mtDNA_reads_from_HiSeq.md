@@ -58,7 +58,15 @@ grep -A3 -P "@*/2" --no-group-separator /work/ben/2017_SEAsian_macaques/SEAsian_
 ```
 
 
-I installed `trinity` on goblin, which was a bit of a pain because I needed to have java version 1.8 in the $PATH and I also needed jellyfish to be installed.  I used trinity version 2.25 instead of the most recent because the latter required salmon, which did not install properly.  This script (32_trinity_assmple_mtDNA.pl) will execute commands to do assemblies:
+I installed `trinity` on goblin, which was a bit of a pain because I needed to have java version 1.8 in the $PATH and I also needed jellyfish to be installed.  
+```
+[ben@iqaluk:/work/ben/2017_SEAsian_macaques/ben_scripts] PATH=/work/ben/2017_SEAsian_macaques/bin/jellyfish-2.2.5/bin:$PATH
+[ben@iqaluk:/work/ben/2017_SEAsian_macaques/ben_scripts] PATH=/work/ben/2017_SEAsian_macaques/bin/samtools-1.6:$PATH
+[ben@iqaluk:/work/ben/2017_SEAsian_macaques/ben_scripts] PATH=/usr/lib/jvm/java-1.8.0-openjdk.x86_64/bin:$PATH
+
+```
+
+I used trinity version 2.25 instead of the most recent because the latter required salmon, which did not install properly.  This script (32_trinity_assmple_mtDNA.pl) will execute commands to do assemblies:
 ```
 #!/usr/bin/perl
 # This script will make commandlines for sharcnet to make bam files with 
