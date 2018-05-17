@@ -49,7 +49,13 @@ foreach my $file (@files){
 #    $status = system($commandline);
 }
 ```
-
+Then split up the reads into separate forward and reverse files
+```
+grep -A3 -P "@*/1" --no-group-separator /work/ben/2017_SEAsian_macaques/SEAsian_macaques_bam/males/tonk_PM592sorted_ddedup_rg_realigned.bamBSQR_mtDNA_only_picard.fastq >/work/ben/2017_SEAsian_macaques/SEAsian_macaques_bam/males/tonk_PM592sorted_ddedup_rg_realigned.bamBSQR_mtDNA_only_picard_1.fastq
+```
+```
+grep -A3 -P "@*/2" --no-group-separator /work/ben/2017_SEAsian_macaques/SEAsian_macaques_bam/males/tonk_PM592sorted_ddedup_rg_realigned.bamBSQR_mtDNA_only_picard.fastq > /work/ben/2017_SEAsian_macaques/SEAsian_macaques_bam/males/tonk_PM592sorted_ddedup_rg_realigned.bamBSQR_mtDNA_only_picard_2.fastq
+```
 
 
 I installed `trinity` on goblin, which was a bit of a pain because I needed to have java version 1.8 in the $PATH and I also needed jellyfish to be installed.  I used trinity version 2.25 instead of the most recent because the latter required salmon, which did not install properly.  This script (32_trinity_assmple_mtDNA.pl) will execute commands to do assemblies:
