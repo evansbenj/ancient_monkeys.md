@@ -25,3 +25,21 @@ foreach my $file (@files){
 }
 ```
 
+I installed `trinity` on goblin, which was a bit of a pain because I needed to have java version 1.8 in the $PATH and I also needed jellyfish to be installed.  I used trinity version 2.25 instead of the most recent because the latter required salmon, which did not install properly.  This script (32_trinity_assmple_mtDNA.pl) will execute commands to do assemblies:
+```
+#!/usr/bin/perl
+# This script will make commandlines for sharcnet to make bam files with 
+# only those reads that map to mtDNA
+
+my $trinitypath = "/work/ben/2017_SEAsian_macaques/bin/trinityrnaseq-Trinity-v2.5.0/";
+my $majorpath = "/work/ben/2017_SEAsian_macaques/SEAsian_macaques_bam/*males/";
+
+@files = glob($majorpath."*fastq");
+
+foreach my $file (@files){
+    my $commandline = "sqsub -r 2h --mpp 6G -o ".$file."\.log ";
+    $commandline = $commandline.$trinitypath."Trinity --seqType fq --single ".$file." --no_normalize_reads --max_memory 10G --KMER_SIZE 29 --no_bowtie";
+    print $commandline,"\n";
+#    $status = system($commandline);
+}
+```
