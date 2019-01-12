@@ -74,3 +74,7 @@ snakemake --jobs 48 -s /mnt/sediments/fred/metagen.p1.SnakeFile all --config bam
 ```
 /mnt/scratch/ben_evans/ancient_macaques/analyzed_runs/Senckenburg_monkeyz
 ```
+Senkenberg data are here or near by: 
+```
+/mnt/scratch/ben_evans/ancient_macaques/analyzed_runs/Senckenburg_monkeyz/out/blast/Cercopithecidae
+```
