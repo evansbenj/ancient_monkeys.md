@@ -78,3 +78,7 @@ Senkenberg data are here or near by:
 ```
 /mnt/scratch/ben_evans/ancient_macaques/analyzed_runs/Senckenburg_monkeyz/out/blast/Cercopithecidae
 ```
+May be the file Matthias was looking for here:
+```
+/mnt/scratch/ben_evans/ancient_macaques/analyzed_runs/Senckenburg_monkeyz/pseudouniq/pseudouniq_stats.txt
+```
