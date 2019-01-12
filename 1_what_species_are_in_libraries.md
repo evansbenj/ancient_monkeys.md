@@ -68,7 +68,7 @@ then this command queries these data bases; probably have to update the -db flag
 First snakemake to map to lots of mtDNA genomes:
 
 ```
-snakemake --jobs 48 -s /mnt/sediments/fred/metagen.p1.SnakeFile all --config bamfile=/mnt/scratch/ben_evans/ancient_macaques/analyzed_runs/Senckenburg_monkeyz/s_1_sequence_ancient_tomis242.bam byfile=/mnt/scratch/ben_evans/ancient_macaques/analyzed_runs/Senckenburg_monkeyz/temp1.txt && snakemake --jobs 48 -s ~frederic_romagne/MetaGen/metagen.p2.SnakeFile && snakemake --jobs 48 -s ~frederic_romagne/MetaGen/metagen.p3.SnakeFile
+snakemake --jobs 48 -s /mnt/sediments/fred/metagen.p1.SnakeFile all --config bamfile=/mnt/scratch/ben_evans/ancient_macaques/analyzed_runs/Senckenburg_monkeyz/s_1_sequence_ancient_tomis242.bam byfile=/mnt/scratch/ben_evans/ancient_macaques/analyzed_runs/Senckenburg_monkeyz/temp2.txt && snakemake --jobs 48 -s ~frederic_romagne/MetaGen/metagen.p2.SnakeFile && snakemake --jobs 48 -s ~frederic_romagne/MetaGen/metagen.p3.SnakeFile
 ```
 (this is an update because it did not work previously.)  it was executed in this directory:
 ```
