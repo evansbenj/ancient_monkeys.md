@@ -111,3 +111,8 @@ This worked and the split unmapped bam files are here:
 ```
 /mnt/scratch/ben_evans/ancient_macaques/analyzed_runs/Senckenburd_monkeys_rerun/split
 ```
+
+As detailed next, the reads that map best to Cercopithecidae are here:
+```
+/mnt/scratch/ben_evans/ancient_macaques/analyzed_runs/Senckenburd_monkeys_rerun/out/blast/Cercopithecidae
+```
