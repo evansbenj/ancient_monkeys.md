@@ -82,3 +82,27 @@ May be the file Matthias was looking for here:
 ```
 /mnt/scratch/ben_evans/ancient_macaques/analyzed_runs/Senckenburg_monkeyz/pseudouniq/pseudouniq_stats.txt
 ```
+
+# Jan 25 2019
+Another run was done for the macaque samples from Senkenberg.
+
+The index file is here:
+``
+/home/mmeyer/solexa_data/190123_M06210_MacaqueMT_deeperSeq/190123_indexcombs_desc.txt
+``
+
+Matthias mapped the data to TomiMt, and the bam file is here:
+```
+/mnt/ngs_data/190123_M06210_0015_000000000-C94BP_JR_B22857/Bustard/BWA/proc1/s_1_sequence_ancient_TomiMtGENOMES.bam
+```
+
+I merged the bams before snake make like this:
+```
+/mnt/scratch/ben_evans/ancient_macaques/analyzed_runs/Senckenburd_monkeys_rerun$ samtools merge merged_senkenberg_TomiMtGENOMES.bam ../Senckenburg_monkeyz/s_1_sequence_ancient_tomis242.bam s_1_sequence_ancient_TomiMtGENOMES.bam
+```
+But this is only a good idea if the indexes are the same which the probably are not
+
+Here is the Snakemake command (updated from Frederic):
+```
+snakemake --jobs 48 -s /mnt/sediments/fred/metagen.p1.SnakeFile all --config bamfile=/mnt/scratch/ben_evans/ancient_macaques/analyzed_runs/Senckenburd_monkeys_rerun/s_1_sequence_ancient_tomis242.bam byfile=/mnt/scratch/ben_evans/ancient_macaques/analyzed_runs/Senckenburg_monkeyz/temp2.txt && snakemake --jobs 48 -s ~frederic_romagne/MetaGen/metagen.p2.SnakeFile && snakemake --jobs 48 -s ~frederic_romagne/MetaGen/metagen.p3.SnakeFile
+```
