@@ -104,5 +104,10 @@ But this is only a good idea if the indexes are the same  across the lanes, whic
 
 Here is the Snakemake command (updated from Frederic):
 ```
-snakemake --jobs 48 -s /mnt/sediments/fred/metagen.p1.SnakeFile all --config bamfile=/mnt/scratch/ben_evans/ancient_macaques/analyzed_runs/Senckenburd_monkeys_rerun/merged_senkenberg_TomiMtGENOMES.bam byfile=/mnt/scratch/ben_evans/ancient_macaques/analyzed_runs/Senckenburd_monkeys_rerun/index_merged_senkenberg_TomiMtGENOMES.txt && snakemake --jobs 48 -s ~frederic_romagne/MetaGen/metagen.p2.SnakeFile && snakemake --jobs 48 -s ~frederic_romagne/MetaGen/metagen.p3.SnakeFile
+snakemake --jobs 48 -s /mnt/sediments/fred/metagen.p1.SnakeFile all --config bamfile=/mnt/scratch/ben_evans/ancient_macaques/analyzed_runs/Senckenburd_monkeys_rerun/merged_senkenberg_TomiMtGENOMES.bam byfile=/mnt/scratch/ben_evans/ancient_macaques/analyzed_runs/Senckenburd_monkeys_rerun/index.txt && snakemake --jobs 48 -s ~frederic_romagne/MetaGen/metagen.p2.SnakeFile && snakemake --jobs 48 -s ~frederic_romagne/MetaGen/metagen.p3.SnakeFile
+```
+
+This worked and the split unmapped bam files are here:
+```
+/mnt/scratch/ben_evans/ancient_macaques/analyzed_runs/Senckenburd_monkeys_rerun/split
 ```
