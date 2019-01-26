@@ -4,7 +4,13 @@ I first ran the sediment pipeline to get reads that map preferentially to Cercop
 ```
 /mnt/scratch/ben_evans/ancient_macaques/analyzed_runs/180502_G5925_Macaca/out/blast/Cercopithecidae
 ```
-The Cercopithicines mtDNA genome in the sediment db is from a baboon. Now I'll map these reads to a M. fascicularis reference to generate whole genome assemblies.  I found out from Matthias that the reads also get mapped to 800 different mtDNA genomes, including M. fascicularis.  Nonetheless I redid the mapping to a mtDNA genome from Mauritus, which is more closely related to the Java+ Lesser Sunda Samples.
+The Cercopithicines mtDNA genome in the sediment db is from a baboon. Now I'll map these reads to a M. fascicularis reference to generate whole genome assemblies.  I found out from Matthias that the reads also get mapped to 800 different mtDNA genomes, including M. fascicularis.  Nonetheless I redid the mapping to a mtDNA genome from Mauritus, which is more closely related to the Java+ Lesser Sunda Samples. For the nemestrina samples i am mapping to PM664 from Borneo, even though the names of the files incorrectly say PM655. This will be true of all nemestrina samples.  The mtDNA references are here:
+```
+/mnt/scratch/ben_evans/ancient_macaques/Mfasc_Mauritus_mtDNA_genome.fasta
+```
+```
+/mnt/scratch/ben_evans/ancient_macaques/Mnem_PM664_mtDNAg_genome.fasta
+```
 
 Lineage assignment: Probably not worth it.  The only samples that have some low coverage but not ridiculously low are one M. fascicularis from East Java (A11226), one from west Flores (A11244) and we have two other complete genomes from this locality, and two M. nemestrina from Borneo.  The M. nemestrina may be helpful, especially if we add the mtDNA genomes from the HiSeqX, which I am inclined to do.  I need to get the sample ID information from Marie still to assess geographic overlap for those samples... 
 
