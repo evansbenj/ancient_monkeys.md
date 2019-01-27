@@ -22,3 +22,21 @@ samtools sort A11272_extractedReads-Cercopithecidae_mapped_to_MfascMAURITUS.bam 
 /home/mmeyer/perlscripts/solexa/analysis/analyzeBAM.pl -qual 25 -paired A11272_extractedReads-Cercopithecidae_mapped_to_MfascMAURITUS_sorted.bam
 # consensus caller
 /home/mmeyer/perlscripts/solexa/analysis/consensus_from_bam.pl -ref /mnt/scratch/ben_evans/ancient_macaques/Mfasc_Mauritus_mtDNA_genome.fasta A11272_extractedReads-Cercopithecidae_mapped_to_MfascMAURITUS_sorted.uniq.L35MQ25.bam
+
+
+# Update for Senkenburg
+
+I had to merge some bam files that were run with different library IDs.  In order to get the consensus calling to work properly, I had to replace the headers and then to the same pipeline as above:
+
+```
+samtools view -H G10633_G10639_extractedReads-Cercopithecidae.bam | sed 's,^@RG.*,@RG\tID:None\tSM:None\tLB:None\tPL:Illumina,g' |  samtools reheader - G10632_G10638_extractedReads-Cercopithecidae.bam > G10633_G10639_extractedReads-Cercopithecidae_rg.bam
+
+bwa bam2bam -n 0.01 -o 2 -l 16500 -g /mnt/scratch/ben_evans/ancient_macaques/Mfasc_Mauritus_mtDNA_genome.fasta -f G10633_G10639_extractedReads-Cercopithecidae_rg_mapped_to_MfascMAURITUS.bam G10633_G10639_extractedReads-Cercopithecidae_rg.bam
+
+samtools sort G10633_G10639_extractedReads-Cercopithecidae_rg_mapped_to_MfascMAURITUS.bam -o G10633_G10639_extractedReads-Cercopithecidae_rg_mapped_to_MfascMAURITUS_sorted.bam
+
+/home/mmeyer/perlscripts/solexa/analysis/analyzeBAM.pl -qual 25 -paired G10633_G10639_extractedReads-Cercopithecidae_rg_mapped_to_MfascMAURITUS_sorted.bam
+
+/home/mmeyer/perlscripts/solexa/analysis/consensus_from_bam.pl -ref /mnt/scratch/ben_evans/ancient_macaques/Mfasc_Mauritus_mtDNA_genome.fasta G10633_G10639_extractedReads-Cercopithecidae_rg_mapped_to_MfascMAURITUS_sorted.uniq.L35MQ25.bam
+
+```
