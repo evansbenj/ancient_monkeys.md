@@ -1,4 +1,7 @@
 # Gblocks
+```
+http://phylogeny.lirmm.fr/phylo_cgi/one_task.cgi?task_type=gblocks
+```
 After removing gaps and unneeded taxa (using paup) I uploaded the nexus file to gblocks and selected the least stringent options for filtering:
 ```
 For a less stringent selection:
