@@ -1,13 +1,8 @@
 # Gblocks
+
+I could have used gblocks here (or locally) but inspection of thew alignment indicates that there are no regions of ambiguous homology, even between Papio/Theropithecus and macaques.
 ```
 http://phylogeny.lirmm.fr/phylo_cgi/one_task.cgi?task_type=gblocks
-```
-After removing gaps and unneeded taxa (using paup) I uploaded the nexus file to gblocks and selected the least stringent options for filtering:
-```
-For a less stringent selection:
-Allow smaller final blocks
-Allow gap positions within the final blocks
-Allow less strict flanking positions
 ```
 
 # Iqtree
