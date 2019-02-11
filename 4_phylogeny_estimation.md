@@ -17,3 +17,12 @@ I am using iqtree to make an ML phylogeny and also to select a model of evolutio
 ```
 ../iqtree -s Liedigk_plus_new_genomez_align8_for_analysis_nogaps.nexus -m MODEL -bb 1000```
 ```
+
+I also did the analysis without the three weird Sulawesi mtDNA genomes from NCBI that had long branch lengths (despite the correct phylogenetic placement
+
+```
+../iqtree -s Liedigk_plus_new_genomez_align8_for_analysis_nogaps_noweirdsula.nexus -m TEST -nt 1 -pre Liedigk_plus_new_genomez_align8_for_analysis_nogaps_noweirdsula.nexus_
+```
+```
+../iqtree -s Liedigk_plus_new_genomez_align8_for_analysis_nogaps_noweirdsula.nexus -m XXX -bb 1000
+```
