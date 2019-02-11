@@ -12,8 +12,8 @@ I am using iqtree to make an ML phylogeny and also to select a model of evolutio
 ```
 
 ```
-../iqtree -s input.nxs -m TEST -nt 1 -pre input.nxs_
+../iqtree -s Liedigk_plus_new_genomez_align8_for_analysis_nogaps.nexus -m TEST -nt 1 -pre Liedigk_plus_new_genomez_align8_for_analysis_nogaps.nexus_
 ```
 ```
-../iqtree -s input.nxs -m MODEL -bb 1000```
+../iqtree -s Liedigk_plus_new_genomez_align8_for_analysis_nogaps.nexus -m MODEL -bb 1000```
 ```
