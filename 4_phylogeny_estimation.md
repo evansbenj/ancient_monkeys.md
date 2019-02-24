@@ -44,3 +44,16 @@ Brooks AS, editors. Encyclopedia of Human Evolution and Prehistory. New
 York: Garland Publishing Inc; 2000. p. 166–71.
 
 I used a relaxed lon normal clock and estimated the clock rate. I used a Birth-Death model for the tree. I ran 100 million generations, sampling every 10,000 generations.
+
+# summarizing trees and logs
+
+I used tracer to check the posterior distributions.  ESS values still too low so I need to do some more runs
+
+in info I am in this directory:
+```
+/2/scratch/ben/2019_ancient_macaque_mtDNA/beast/bin
+```
+I summarize the trees like this:
+```
+./treeannotator -b 40 Liedigk_plus_new_genomez_align8_for_analysis_nogaps_noweirdsula.trees Liedigk_plus_new_genomez_align8_for_analysis_nogaps_noweirdsula_con
+```
