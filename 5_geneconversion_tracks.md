@@ -240,9 +240,9 @@ foreach my $key (sort { $a <=> $b } keys(%group1) ){
 			push(@{$snake1{$key}}, @isect1);
 			push(@{$snake2{$key}}, @isect4);
 			if(exists $snake1{$previous_key-0.5} ){
-				push(@{$snake1{$previous_key}}, @gp1_individuals_array); # this puts the (appropriate) group in the beginning of the track
-																		 # based on how it matches the next position
-				push(@{$snake2{$previous_key}}, @gp2_individuals_array);
+				push(@{$snake1{$previous_key}}, @isect1); # this puts a subset of the (appropriate) group in the beginning of the first position of
+														  # the track based on how it matches the next position
+				push(@{$snake2{$previous_key}}, @isect4);
 			}
 			#print "wacko1 ",@{ $snake1{$key} },"\n";
 		}
@@ -250,8 +250,8 @@ foreach my $key (sort { $a <=> $b } keys(%group1) ){
 			push(@{$snake1{$key}}, @isect3);
 			push(@{$snake2{$key}}, @isect2);
 			if(exists $snake1{$previous_key-0.5} ){
-				push(@{$snake1{$previous_key}}, @gp2_individuals_array);
-				push(@{$snake2{$previous_key}}, @gp1_individuals_array);
+				push(@{$snake1{$previous_key}}, @isect3);
+				push(@{$snake2{$previous_key}}, @isect2);
 			}
 			#print "wacko2 ",@{ $snake1{$key} },"\n";
 		}
@@ -274,5 +274,7 @@ foreach $key (sort { $a <=> $b } keys(%snake1) ){
   	print OUTFILE "$key @{ $snake1{$key} } \|\|\| @{ $snake2{$key} }\n";
   	print "$key @{ $snake1{$key} } \|\|\| @{ $snake2{$key} }\n";
 }	
+
+	
 
 ```
