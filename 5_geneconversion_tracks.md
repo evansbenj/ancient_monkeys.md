@@ -233,22 +233,31 @@ foreach my $key (sort { $a <=> $b } keys(%group1) ){
 		@isect10 = intersect(@isect2, @gp2_individuals_array);
 		@isect11 = intersect(@isect3, @gp2_individuals_array);
 		@isect12 = intersect(@isect4, @gp2_individuals_array);
-		#print "goodby $key @isect5 YYYYYYYYY @isect6 ZZZZZ @isect7 AAAA @isect8 FFF @isect9 YYYYYYYYY @isect10 ZZZZZ @isect11 AAAA @isect12\n";
+		print "goodby $key @isect5 YYYYYYYYY @isect6 ZZZZZ @isect7 AAAA @isect8 FFF @isect9 YYYYYYYYY @isect10 ZZZZZ @isect11 AAAA @isect12\n";
 		# now check if both tracks have two members from each group
-		#print $key," DDD ",$#isect5," DDD ",$#isect9," DDD ",$#isect8," DDD ",$#isect12,"\n";
+		print $key," DDD ",$#isect5," DDD ",$#isect9," DDD ",$#isect8," DDD ",$#isect12,"\n";
 		if(($#isect5 >= 1)&&($#isect9 >= 1)&&($#isect8 >= 1)&&($#isect12 >= 1)){
 			push(@{$snake1{$key}}, @isect1);
 			push(@{$snake2{$key}}, @isect4);
+			if(exists $snake1{$previous_key-0.5} ){
+				push(@{$snake1{$previous_key}}, @gp1_individuals_array); # this puts the (appropriate) group in the beginning of the track
+																		 # based on how it matches the next position
+				push(@{$snake2{$previous_key}}, @gp2_individuals_array);
+			}
 			#print "wacko1 ",@{ $snake1{$key} },"\n";
 		}
 		elsif(($#isect7 > 1)&&($#isect11 > 1)&&($#isect6 > 1)&&($#isect10 > 1)){
 			push(@{$snake1{$key}}, @isect3);
 			push(@{$snake2{$key}}, @isect2);
+			if(exists $snake1{$previous_key-0.5} ){
+				push(@{$snake1{$previous_key}}, @gp2_individuals_array);
+				push(@{$snake2{$previous_key}}, @gp1_individuals_array);
+			}
 			#print "wacko2 ",@{ $snake1{$key} },"\n";
 		}
 		else{
-			push(@{$snake1{$key}}, "no_extension");
-			push(@{$snake2{$key}}, "no_extension");
+			push(@{$snake1{$key-0.5}}, "no_extension");
+			push(@{$snake2{$key-0.5}}, "no_extension");
 			#print "wacko3 ",@{ $snake1{$key} },"\n";
 		}
 		$previous_key=$key;
