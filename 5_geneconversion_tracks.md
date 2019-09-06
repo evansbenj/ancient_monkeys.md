@@ -677,7 +677,7 @@ print OUTFILE "\n";
 
 ```
 
-And I wrote an R script to plot the results (range_plot.R):
+And I wrote an R script to plot the results (range_plot.R), below.  This has the ranges that were identified from the track approach I generated with the first stript and the different methods implemented by RDP as parsed from the second script.  I have it hard coded to have the nem sula results and this needs to be changed to plot the fasc results.
 ```
 # This R script will (hopefully) allow me to present gene conversion tracks
 # from several programs simultaneously
