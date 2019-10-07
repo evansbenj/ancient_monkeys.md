@@ -29,3 +29,5 @@ QR_paired1.fq -2 ./reads_from_bam/maura_PF615sorted_ddedup_rg_realigned.bamBSQR_
 n -F 0x900 /home/ben/projects/rrg-ben/ben/2017_SEAsian_macaques/SEAsian_macaques_bam/females/maura_PF615sorted_ddedup_
 rg_realigned.bamBSQR.bam
 ```
+
+# Count kmers
