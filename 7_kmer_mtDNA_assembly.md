@@ -31,7 +31,8 @@ rg_realigned.bamBSQR.bam
 ```
 
 # Count kmers
-In this directory: ```
+In this directory: 
+```
 /scratch/ben/SEAsian_macaques_original_rawdata/maura_PF615/
 ```
 After copying over the RepPark script and modifying the directories to be "", I am running RepPark using this sbatch command, which loads jellyfish and trinity modules and hopefully works:
@@ -49,14 +50,14 @@ After copying over the RepPark script and modifying the directories to be "", I 
 
 module load rsem/1.3.0
 module load samtools
-module load bowtie2/2.3.4.1
+#module load bowtie2/2.3.4.1
 module load nixpkgs/16.09 gcc/5.4.0 openmpi/2.1.1
 module load salmon/0.9.1
 module load transdecoder/3.0.1
 module load jellyfish/2.2.6
 module load trinity/2.6.5
 
-./RepPark.pl -l $1 -l $2 -k 31 -o $3
+./RepARk.pl -l $1 -l $2 -k 31 -o $3
 ```
 Here is an example of the command:
 ```
