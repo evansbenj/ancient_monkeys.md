@@ -97,4 +97,7 @@ Amazingly, it appears that I have 23 of 29 individually trimmed data on graham (
 /home/ben/projects/rrg-ben/ben/SEAsian_macaques_rawdata_MPIexpressions/
 ```
 
-
+So I should be able to run this again like this:
+```
+sbatch RepPark_sbatch.sh /home/ben/projects/rrg-ben/ben/SEAsian_macaques_rawdata_MPIexpressions/maura_PF615/PF615_all_R1scythe_and_trimm_paired.cor.fastq.gz /home/ben/projects/rrg-ben/ben/SEAsian_macaques_rawdata_MPIexpressions/maura_PF615/PF615_all_R2scythe_and_trimm_paired.cor.fastq.gz maura_PF615_kmer_31
+```
