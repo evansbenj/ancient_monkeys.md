@@ -65,3 +65,23 @@ Here is an example of the command:
 ```
 sbatch RepPark_sbatch.sh /scratch/ben/SEAsian_macaques_original_rawdata/maura_PF615/reads_from_bam/maura_PF615sorted_ddedup_rg_realigned.bamBSQR_paired1.fq /scratch/ben/SEAsian_macaques_original_rawdata/maura_PF615/reads_from_bam/maura_PF615sorted_ddedup_rg_realigned.bamBSQR_paired2.fq maura_PF615_kmer_31
 ```
+
+# Making a blast db out of the kmer contigs
+```
+module load nixpkgs/16.09
+module load gcc/7.3.0
+module load blast+/2.7.1
+```
+make a blast db in this directory:
+```
+/scratch/ben/SEAsian_macaques_original_rawdata/maura_PF615/maura_PF615_kmer_31/velvet_repeat_lib
+```
+like this:
+```
+makeblastdb -in contigs.fa -dbtype nucl -out contigs.fa_blastable
+```
+
+now blast a mtDNA genome against this blast database like this:
+```
+blastn -query maura_PF615_mapped_to_rhesus.fa -db contigs.fa_blastable -outfmt 6 -out maura_PF615_mapped_to_rhesus_to_highabundancecontigs.out
+```
