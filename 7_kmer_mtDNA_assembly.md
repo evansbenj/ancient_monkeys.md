@@ -35,7 +35,7 @@ In this directory:
 ```
 /scratch/ben/SEAsian_macaques_original_rawdata/maura_PF615/
 ```
-After copying over the RepPark script and modifying the directories to be "", I am running RepPark using this sbatch command, which loads jellyfish and trinity modules and hopefully works:
+After copying over the RepPark script and modifying the directories to be "", I am running RepPark using this sbatch command, which loads jellyfish and trinity modules and hopefully works.  The -t sets the threshold count to 80, so we should be retaining only high coverage kmers:
 
 ```
 #!/bin/sh
@@ -43,23 +43,25 @@ After copying over the RepPark script and modifying the directories to be "", I 
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --time=48:00:00
-#SBATCH --mem=1gb
+#SBATCH --mem=3gb
 #SBATCH --output=reppark.%J.out
 #SBATCH --error=reppark.%J.err
 #SBATCH --account=def-ben
 
 module load rsem/1.3.0
 module load samtools
+#module load nixpkgs/16.09
+#module load intel/2016.4
 #module load bowtie2/2.3.4.1
 module load nixpkgs/16.09 gcc/5.4.0 openmpi/2.1.1
 module load salmon/0.9.1
 module load transdecoder/3.0.1
 module load jellyfish/2.2.6
 module load trinity/2.6.5
-
-./RepARk.pl -l $1 -l $2 -k 31 -o $3
+module load velvet/1.2.10
+./RepARK.pl -l $1 -l $2 -k 31 -t 80 -o $3
 ```
 Here is an example of the command:
 ```
-sbatch RepPark_sbatch.sh ./reads_from_bam/maura_PF615sorted_ddedup_rg_realigned.bamBSQR_paired1.fq ./reads_from_bam/maura_PF615sorted_ddedup_rg_realigned.bamBSQR_paired2.fq -o maura_PF615_kmer_31
+sbatch RepPark_sbatch.sh /scratch/ben/SEAsian_macaques_original_rawdata/maura_PF615/reads_from_bam/maura_PF615sorted_ddedup_rg_realigned.bamBSQR_paired1.fq /scratch/ben/SEAsian_macaques_original_rawdata/maura_PF615/reads_from_bam/maura_PF615sorted_ddedup_rg_realigned.bamBSQR_paired2.fq maura_PF615_kmer_31
 ```
