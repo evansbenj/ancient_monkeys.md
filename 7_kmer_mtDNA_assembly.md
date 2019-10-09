@@ -92,4 +92,9 @@ grep -o -P '(?<=cov_).*(?=)' contigs.fa | sort -rn | head -n 10
 
 This produced nothing.  Maybe there is a problem with using the reads from the bam file?  I will try doing this now with the raw data, but it will take a while to upload it probably.
 
+Amazingly, it appears that I have 23 of 29 individually trimmed data on graham (safetly) here:
+```
+/home/ben/projects/rrg-ben/ben/SEAsian_macaques_rawdata_MPIexpressions/
+```
+
 
