@@ -85,3 +85,11 @@ now blast a mtDNA genome against this blast database like this:
 ```
 blastn -query maura_PF615_mapped_to_rhesus.fa -db contigs.fa_blastable -outfmt 6 -out maura_PF615_mapped_to_rhesus_to_highabundancecontigs.out
 ```
+I can check the coverage of the high abundance contigs like this:
+```
+grep -o -P '(?<=cov_).*(?=)' contigs.fa | sort -rn | head -n 10
+```
+
+This produced nothing.  Maybe there is a problem with using the reads from the bam file?  I will try doing this now with the raw data, but it will take a while to upload it probably.
+
+
