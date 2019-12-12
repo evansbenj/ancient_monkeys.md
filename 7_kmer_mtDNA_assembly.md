@@ -1,3 +1,11 @@
+# Coverage per site in WGS mtDNA
+
+After identifying evidence of gene conversion in mtDNA genomes mapped to the rhesus reference, I checked the coverage per site using samtools:
+```
+samtools depth -a -d 0 -r chrM:1-16564 maura_PF615sorted_ddedup_rg_realigned.bamBSQR.bam > maura_PF615sorted_ddedup_rg_realigned.bamBSQR.depth_per_base
+```
+In this individual, 318 sites had zero coverage and probably got the reference sequence as a result. This is a huge problem and probably explains why there was evidence of gene conversion. To remedy this, I have two ideas.  First, I can try to assemble the mtDNA from high coverage kmers extracted from the bam file or the original trimmed reads. The former may be bad if the unmapped reads are not in the bam file.  I need to look into that. And second, I could try to use a more closely related reference sequence.  There are some Sulawesi macaque sequences on Genbank but I think they also have the same issue with reference sequence mixed in with read sequences.  So maybe the kmer approach will work?  See below for more.
+
 # De novo assembly using kmers
 
 One concern is that the gene conversion tracks may have low coverage.  I am going to use RepBase to assemble mtDNA using high count kmers.
