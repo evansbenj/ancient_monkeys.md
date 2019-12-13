@@ -109,3 +109,79 @@ So I should be able to run this again like this:
 ```
 sbatch RepPark_sbatch.sh /home/ben/projects/rrg-ben/ben/SEAsian_macaques_rawdata_MPIexpressions/maura_PF615/PF615_all_R1scythe_and_trimm_paired.cor.fastq.gz /home/ben/projects/rrg-ben/ben/SEAsian_macaques_rawdata_MPIexpressions/maura_PF615/PF615_all_R2scythe_and_trimm_paired.cor.fastq.gz maura_PF615_kmer_31
 ```
+
+# Extracting fastq files from bam
+
+I did not use this one because it does not extract unmapped reads (bedtools.sh):
+```
+#!/bin/sh
+#SBATCH --job-name=bedtools
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --time=48:00:00
+#SBATCH --mem=16gb
+#SBATCH --output=bedtools.%J.out
+#SBATCH --error=bedtools.%J.err
+#SBATCH --account=def-ben
+module load samtools/1.9
+samtools sort -n $1 -o aln.qsort
+# the aln.qsort.bam file will be overwritten every time I run this
+module load bedtools/2.27.1
+bedtools bamtofastq -i aln.qsort.bam -fq bru_PF707.end1.fq -fq2 bru_PF707.end2.fq
+```
+
+But this one does (fastqs_from_bam.sh):
+```
+#!/bin/sh
+#SBATCH --job-name=fastqs_from_bam
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --time=72:00:00
+#SBATCH --mem=16gb
+#SBATCH --output=fastqs_from_bam.%J.out
+#SBATCH --error=fastqs_from_bam.%J.err
+#SBATCH --account=def-ben
+
+# this script should extract mapped and unmapped reads from a bam file
+# and generate perfect paired fastq files
+# load samtools
+module load samtools/1.9
+# directions are here
+# https://gist.github.com/darencard/72ddd9e6c08aaff5ff64ca512a04a6dd 
+# R1 mapped, R2 mapped
+ samtools view -u -f 1 -F 12 $1 > lib_002_map_map.bam
+# R1 unmapped, R2 mapped
+samtools view -u -f 4 -F 264 $1 > lib_002_unmap_map.bam
+# R1 mapped, R2 unmapped
+samtools view -u -f 8 -F 260 $1 > lib_002_map_unmap.bam
+# R1 & R2 unmapped
+samtools view -u -f 12 -F 256 $1 > lib_002_unmap_unmap.bam
+
+# merge
+samtools merge -u lib_002_unmapped.bam lib_002_unmap_map.bam lib_002_map_unmap.bam lib_002_unmap_unmap.bam
+
+# sort
+samtools sort -n lib_002_map_map.bam -o lib_002_mapped.sort.bam
+samtools sort -n lib_002_unmapped.bam -o lib_002_unmapped.sort.bam
+
+# get some summary stats
+samtools flagstat lib_002.sorted.md.bam
+samtools view -c lib_002_mapped.sort.bam
+samtools view -c lib_002_unmapped.sort.bam
+
+
+module load bedtools/2.27.1
+#extract the FASTQ reads into two paired read files
+bamToFastq -i lib_002_mapped.sort.bam -fq lib_002_mapped.1.fastq -fq2 lib_002_mapped.2.fastq 
+bamToFastq -i lib_002_unmapped.sort.bam -fq lib_002_unmapped.1.fastq -fq2 lib_002_unmapped.2.fastq 
+
+# combine both the first and paired reads together from the mapped and unmapped files
+cat lib_002_mapped.1.fastq lib_002_unmapped.1.fastq > lib_002.1.fastq
+cat lib_002_mapped.2.fastq lib_002_unmapped.2.fastq > lib_002.2.fastq
+
+# You might need to run [BBTools](https://sourceforge.net/projects/bbmap/) [Repair.sh](https://jgi.doe.gov/data-and-tools/b
+btools/bb-tools-user-guide/repair-guide/) to repair the read1 and read2 pairing
+
+module load bbmap/37.36
+repair.sh in=lib_002.1.fastq in2=lib_002.2.fastq out=lib_002.1.fastq.gz out2=lib_002.2.fastq.gz repair
+```
