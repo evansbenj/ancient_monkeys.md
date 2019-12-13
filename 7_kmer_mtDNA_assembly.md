@@ -185,3 +185,7 @@ btools/bb-tools-user-guide/repair-guide/) to repair the read1 and read2 pairing
 module load bbmap/37.36
 repair.sh in=lib_002.1.fastq in2=lib_002.2.fastq out=lib_002.1.fastq.gz out2=lib_002.2.fastq.gz repair
 ```
+I executed the above on graham like this:
+```
+sbatch fastqs_from_bam.sh /home/ben/projects/rrg-ben/ben/2017_SEAsian_macaques/SEAsian_macaques_bam/males/nigrescens_PM654sorted_ddedup_rg_realigned.bamBSQR.bam
+```
