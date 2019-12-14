@@ -193,7 +193,9 @@ sbatch fastqs_from_bam.sh /home/ben/projects/rrg-ben/ben/2017_SEAsian_macaques/S
 
 # Starting to look better
 
-When I used the raw trimmed data to feed into RepArk, the resulting kmer contigs were very fragmented but matched pretty much the entire mtDNA.  Next step is to try just mapping the raw data to the consensus seq from the map to rhemac mtDNA.  I think this might work.
+When I used the raw trimmed data to feed into RepArk, the resulting kmer contigs were very fragmented but matched pretty much the entire mtDNA.  I think some of these are probably numts.
+
+Next step is to try just mapping the raw data to the consensus seq from the map to rhemac mtDNA.  I think this might work.
 
 Here are some commands I used to get the highest coverage and longest kmer contigs:
 ```
