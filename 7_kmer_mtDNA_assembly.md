@@ -189,3 +189,16 @@ I executed the above on graham like this:
 ```
 sbatch fastqs_from_bam.sh /home/ben/projects/rrg-ben/ben/2017_SEAsian_macaques/SEAsian_macaques_bam/males/nigrescens_PM654sorted_ddedup_rg_realigned.bamBSQR.bam
 ```
+
+
+# Starting to look better
+
+When I used the raw trimmed data to feed into RepArk, the resulting kmer contigs were very fragmented but matched pretty much the entire mtDNA.  Next step is to try just mapping the raw data to the consensus seq from the map to rhemac mtDNA.  I think this might work.
+
+Here are some commands I used to get the highest coverage and longest kmer contigs:
+```
+grep -o -P '(?<=cov_).*(?=)' contigs.fa | sort -rn | head -n 10
+grep -o -P '(?<=length_).*(?=)' contigs.fa | sort -rn | head -n 10
+grep '1666.413818' contigs.fa
+awk -v seq="NODE_693971_length_29_cov_1666.413818" -v RS='>' '$1 == seq {print RS $0}' contigs.fa
+```
