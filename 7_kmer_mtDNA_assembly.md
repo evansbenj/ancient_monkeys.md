@@ -98,7 +98,7 @@ I can check the coverage of the high abundance contigs like this:
 grep -o -P '(?<=cov_).*(?=)' contigs.fa | sort -rn | head -n 10
 ```
 
-This produced nothing.  Maybe there is a problem with using the reads from the bam file?  I will try doing this now with the raw data, but it will take a while to upload it probably.
+This produced nothing.  Maybe there is a problem with using the reads from the bam file?  I will try doing this now with the raw data. When I did this, there were many mtDNA hits. But the problem is how do I distinguish them from numts?  Also the real mtDNA hits seem to be fragmented (i.e. there isn't one contig that is ~16,000 bp long).
 
 Amazingly, it appears that I have 23 of 29 individually trimmed data on graham (safetly) here:
 ```
@@ -204,3 +204,26 @@ grep -o -P '(?<=length_).*(?=)' contigs.fa | sort -rn | head -n 10
 grep '1666.413818' contigs.fa
 awk -v seq="NODE_693971_length_29_cov_1666.413818" -v RS='>' '$1 == seq {print RS $0}' contigs.fa
 ```
+
+# De novo assembly using abyss
+
+Another approach is to do a de novo assembly and hope that the entire mtDNA is assembled.  I useed the trimmeeed raw data and abyss like this (for maura_PF615 in this directory: /scratch/ben/SEAsian_macaques_original_rawdata/maura_PF615):
+```
+#!/bin/sh
+#SBATCH --job-name=abyss
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=8
+#SBATCH --time=96:00:00
+#SBATCH --mem=256gb
+#SBATCH --output=abyss.%J.out
+#SBATCH --error=abyss.%J.err
+#SBATCH --account=def-ben
+
+module load abyss/2.0.2
+
+abyss-pe np=8 name=$1 k=64 in="/home/ben/projects/rrg-ben/ben/SEAsian_macaques_rawdata_MPIexpressions/maura_PF615/PF615_
+all_R1scythe_and_trimm_paired.cor.fastq.gz /home/ben/projects/rrg-ben/ben/SEAsian_macaques_rawdata_MPIexpressions/maura_
+PF615/PF615_all_R2scythe_and_trimm_paired.cor.fastq.gz"
+```
+This seems to be working ok. Hopefully a 4 day timee wall will suffice.
+
