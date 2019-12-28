@@ -227,3 +227,24 @@ PF615/PF615_all_R2scythe_and_trimm_paired.cor.fastq.gz"
 ```
 This seems to be working ok. Hopefully a 4 day timee wall will suffice.
 
+# Norgal
+
+I am also trying another approach that tries to assemble mtDNA genomes using high coverage kmers.  
+
+```
+#!/bin/sh                                                                                                                                          
+#SBATCH --job-name=norgal                                                                                                               #SBATCH --nodes=1                                                                                                                       #SBATCH --ntasks-per-node=8                                                                                                             
+#SBATCH --time=12:00:00                                                                                                                 
+#SBATCH --mem=128gb                                                                                                                     
+#SBATCH --output=norgal.%J.out                                                                                                           
+#SBATCH --error=norgal.%J.err                                                                                                           
+#SBATCH --account=def-ben                                                                                                               
+
+module load python/2.7.14
+module load scipy-stack/2019b
+
+python ../norgal/norgal.py -i /home/ben/projects/rrg-ben/ben/SEAsian_macaques_rawdata_MPIexpressions/hecki_PF505/PF505_all_R1scythe_and_trimm_pair\
+ed.cor.fastq.gz /home/ben/projects/rrg-ben/ben/SEAsian_macaques_rawdata_MPIexpressions/hecki_PF505/PF505_all_R2scythe_and_trimm_paired.cor.fastq.g\
+z -t 8 -m 1000 -r hecki_PF505-3.fa -o norgal_output --blast
+```
+
