@@ -252,3 +252,9 @@ module load seqtk/1.2
 seqtk sample -s100 PF505_trim1_repaired.fq 10000000 > PF505_trim1_repaired1000.fq
 seqtk sample -s100 PF505_trim2_repaired.fq 10000000 > PF505_trim2_repaired1000.fq
 ```
+
+# Norgal is broken, but NOVOplasty works
+
+I'm using another program called NOVOplasty now.  I got it to work for bru and tog.  I compared the completely assembled mtDNA to the mtDNA that was mapped to rhesus and there was ~2.5% difference between them and several (consistent) insertions in the NOVOplasty seqs. I am now going to do this for all of the WGS samples.  To double check that this is an improvement, I am also mapping the bru and tog data to the rhesus mapped and NOVO seqs and will then calculate coverage per base pair.  I expect that the NOVO assembly will have higher coverage in regions that had low coverage in the rhesus mapped data.  More to come on that.
+
+I am working (among other places) on info in this directory: `/4/ben/2017_SEAsian_macaques`
