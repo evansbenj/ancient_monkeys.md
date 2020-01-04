@@ -100,11 +100,14 @@ grep -o -P '(?<=cov_).*(?=)' contigs.fa | sort -rn | head -n 10
 
 This produced nothing.  Maybe there is a problem with using the reads from the bam file?  I will try doing this now with the raw data. When I did this, there were many mtDNA hits. But the problem is how do I distinguish them from numts?  Also the real mtDNA hits seem to be fragmented (i.e. there isn't one contig that is ~16,000 bp long).
 
-Amazingly, it appears that I have 23 of 29 individually trimmed data on graham (safetly) here:
+Amazingly, it appears that I have 23 of 29 individually trimmed data on graham (safely) here:
 ```
 /home/ben/projects/rrg-ben/ben/SEAsian_macaques_rawdata_MPIexpressions/
 ```
-
+and the bam file are (safely) here:
+```
+/home/ben/projects/rrg-ben/ben/2017_SEAsian_macaques/SEAsian_macaques_bam/males/nem_PM1206sorted_ddedup_rg_realigned.bamBSQR.bam
+```
 So I should be able to run this again like this:
 ```
 sbatch RepPark_sbatch.sh /home/ben/projects/rrg-ben/ben/SEAsian_macaques_rawdata_MPIexpressions/maura_PF615/PF615_all_R1scythe_and_trimm_paired.cor.fastq.gz /home/ben/projects/rrg-ben/ben/SEAsian_macaques_rawdata_MPIexpressions/maura_PF615/PF615_all_R2scythe_and_trimm_paired.cor.fastq.gz maura_PF615_kmer_31
