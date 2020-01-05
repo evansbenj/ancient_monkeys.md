@@ -16,6 +16,10 @@ and here
 ```
 /home/ben/projects/rrg-ben/ben/ancient_macaques/analyzed_runs/Senckenburd_monkeys_rerun/out/blast/Cercopithecidae
 ```
+and here (although the naming here is somewhat weird and this may be one that I did the splitting on and maybe not trustworthy):
+```
+/home/ben/projects/rrg-ben/ben/ancient_macaques/analyzed_runs/180506_M02279_0263_000000000-G1WFT_BN_G5924/out/blast/Cercopithecidae
+```
 
 The Cercopithicines mtDNA genome in the sediment db is from a baboon. Now I'll map these reads to a M. fascicularis reference to generate whole genome assemblies.  I found out from Matthias that the reads also get mapped to 800 different mtDNA genomes, including M. fascicularis.  Nonetheless I redid the mapping to a mtDNA genome from Mauritus, which is more closely related to the Java+ Lesser Sunda Samples. For the nemestrina samples i am mapping to PM664 from Borneo, even though the names of the files incorrectly say PM655. This will be true of all nemestrina samples.  The mtDNA references are here:
 ```
