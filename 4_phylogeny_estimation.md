@@ -12,17 +12,10 @@ I am using iqtree version 1.4.o to make an ML phylogeny and also to select a mod
 iqtree -s All_data_align_for_GenBank_ambig_removed.nex -m TEST -nt 1 -pre All_data_align_for_GenBank_ambig_removed.nex_
 ```
 ```
-iqtree -s All_data_align_for_GenBank_ambig_removed.nex -m TN+F+I+G4 -bb 1000
+iqtree -s All_data_align_for_GenBank_ambig_removed.nex -m TIM3+I+G4 -bb 1000
 ```
 
-I also did the analysis without the three weird Sulawesi mtDNA genomes from NCBI that had long branch lengths (despite the correct phylogenetic placement
 
-```
-../iqtree -s Liedigk_plus_new_genomez_align8_for_analysis_nogaps_noweirdsula.nexus -m TEST -nt 1 -pre Liedigk_plus_new_genomez_align8_for_analysis_nogaps_noweirdsula.nexus_
-```
-```
-../iqtree -s Liedigk_plus_new_genomez_align8_for_analysis_nogaps_noweirdsula.nexus -m TN+F+I+G4 -bb 1000
-```
 # BEAST
 
 I'm using BEAST version 2 with the clade Age package as described here: https://taming-the-beast.org/tutorials/CladeAge-Tutorial/
