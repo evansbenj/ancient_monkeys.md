@@ -1,21 +1,18 @@
-# Gblocks
+# Ambiguous sections
 
-I could have used gblocks here (or locally) but inspection of thew alignment indicates that there are no regions of ambiguous homology, even between Papio/Theropithecus and macaques.
-```
-http://phylogeny.lirmm.fr/phylo_cgi/one_task.cgi?task_type=gblocks
-```
+I removed two regions of ambiguous homology: a portion of the non-genic region, positions 7697-7761 in KJ567054.1, and a portion of the d-loop, positions 15686-15741 in KJ567054.1
 
 # Iqtree
-I am using iqtree to make an ML phylogeny and also to select a model of evolution. This model will be used for the time calibrated MrBayes analysis. I am in this directory on sharcnet:
+I am using iqtree version 1.4.o to make an ML phylogeny and also to select a model of evolution. This model will be used for the time calibrated MrBayes analysis. I am in this directory on info:
 ```
-/work/ben/iqtree-1.6.8-Linux/bin/Ancient_macaque_mtDNA
+/2/scratch/ben/2019_ancient_macaque_mtDNA/iqtree
 ```
 
 ```
-../iqtree -s Liedigk_plus_new_genomez_align8_for_analysis_nogaps.nexus -m TEST -nt 1 -pre Liedigk_plus_new_genomez_align8_for_analysis_nogaps.nexus_
+iqtree -s All_data_align_for_GenBank_ambig_removed.nex -m TEST -nt 1 -pre All_data_align_for_GenBank_ambig_removed.nex_
 ```
 ```
-../iqtree -s Liedigk_plus_new_genomez_align8_for_analysis_nogaps.nexus -m TN+F+I+G4 -bb 1000```
+iqtree -s All_data_align_for_GenBank_ambig_removed.nex -m TN+F+I+G4 -bb 1000
 ```
 
 I also did the analysis without the three weird Sulawesi mtDNA genomes from NCBI that had long branch lengths (despite the correct phylogenetic placement
