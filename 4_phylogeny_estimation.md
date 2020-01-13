@@ -43,7 +43,12 @@ in info I am in this directory:
 ```
 /2/scratch/ben/2019_ancient_macaque_mtDNA/beast/bin
 ```
-I summarize the trees like this:
+I summarize the logs like this:
+```
+./bin/logcombiner -burnin 10 -log GTR/run1/Monkey_mt_nogaps_no_ambig_for_analysis_GTR.log -log GTR/run2/Monkey_mt_nogaps_no_ambig_for_analysis_GTR.log -log GTR/run3/Monkey_mt_nogaps_no_ambig_for_analysis_GTR.log -log GTR/run4/Monkey_mt_nogaps_no_ambig_for_analysis_GTR.log -o combined.log
+```
+and trees like this:
+
 ```
 ./treeannotator -b 40 Liedigk_plus_new_genomez_align8_for_analysis_nogaps_noweirdsula.trees Liedigk_plus_new_genomez_align8_for_analysis_nogaps_noweirdsula_con
 ```
