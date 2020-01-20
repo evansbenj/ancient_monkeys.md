@@ -43,12 +43,14 @@ in info I am in this directory:
 ```
 /2/scratch/ben/2019_ancient_macaque_mtDNA/beast/bin
 ```
-I summarize the logs like this:
+I summarize the logs like this (for TN93):
 ```
-./bin/logcombiner -burnin 10 -log GTR/run1/Monkey_mt_nogaps_no_ambig_for_analysis_GTR.log -log GTR/run2/Monkey_mt_nogaps_no_ambig_for_analysis_GTR.log -log GTR/run3/Monkey_mt_nogaps_no_ambig_for_analysis_GTR.log -log GTR/run4/Monkey_mt_nogaps_no_ambig_for_analysis_GTR.log -o combined.log
-```
-and trees like this:
+./bin/logcombiner -burnin 45 -log TN93/run1/All_data_align_for_GenBank_ambig_removed.log -log TN93/run3/All_data_align_for_GenBank_ambig_removed.log -log TN93/run4/All_data_align_for_GenBank_ambig_removed.log -log TN93/run5/All_data_align_for_GenBank_ambig_removed.log -log TN93/run6/All_data_align_for_GenBank_ambig_removed.log -log TN93/run7/All_data_align_for_GenBank_ambig_removed.log -o combined.log
 
 ```
-./treeannotator -b 40 Liedigk_plus_new_genomez_align8_for_analysis_nogaps_noweirdsula.trees Liedigk_plus_new_genomez_align8_for_analysis_nogaps_noweirdsula_con
+and trees like this  (for TN93):
+
+```
+
+./bin/logcombiner -burnin 45 -log TN93/run1/All_data_align_for_GenBank_ambig_removed.trees -log  TN93/run3/All_data_align_for_GenBank_ambig_removed.trees -log TN93/run4/All_data_align_for_GenBank_ambig_removed.trees -log TN93/run5/All_data_align_for_GenBank_ambig_removed.trees -log TN93/run6/All_data_align_for_GenBank_ambig_removed.trees -log TN93/run7/All_data_align_for_GenBank_ambig_removed.trees -o combined.trees
 ```
