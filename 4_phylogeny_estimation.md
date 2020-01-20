@@ -54,3 +54,7 @@ and trees like this  (for TN93):
 
 ./bin/logcombiner -burnin 45 -log TN93/run1/All_data_align_for_GenBank_ambig_removed.trees -log  TN93/run3/All_data_align_for_GenBank_ambig_removed.trees -log TN93/run4/All_data_align_for_GenBank_ambig_removed.trees -log TN93/run5/All_data_align_for_GenBank_ambig_removed.trees -log TN93/run6/All_data_align_for_GenBank_ambig_removed.trees -log TN93/run7/All_data_align_for_GenBank_ambig_removed.trees -o combined.trees
 ```
+Then after fixing radiata and nem_PM665_NOVO, each in 2 places, I summarized the trees like this:
+```
+./bin/treeannotator combined.trees TN_contree.tre
+```
