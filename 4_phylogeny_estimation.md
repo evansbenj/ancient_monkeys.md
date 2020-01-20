@@ -70,7 +70,7 @@ Then after fixing radiata and nem_PM665_NOVO, each in 2 places, I summarized the
 ```
 ./bin/treeannotator combined.trees TN_contree.tre
 ```
-or this (for GTR I needed to get rid of a small bit from run1:
+or this (for GTR I needed to get rid of a small bit (ie, 2%) from run1:
 ```
-./bin/treeannotator -burnin XXX combined.trees TN_contree.tre
+./bin/treeannotator -burnin 2 combined.trees TN_contree.tre
 ```
