@@ -50,7 +50,7 @@ I summarize the logs like this (for TN93):
 ```
 and (for GTR):
 ```
-./bin/logcombiner -burnin 50 -log GTR/run1/All_data_align_for_GenBank_ambig_removed.log -log GTR/run2/All_data_align_for_GenBank_ambig_removed.log -log GTR/run3/All_data_align_for_GenBank_ambig_removed.log -log GTR/run5/All_data_align_for_GenBank_ambig_removed.log -log GTR/run6/All_data_align_for_GenBank_ambig_removed.log -log GTR/run7/All_data_align_for_GenBank_ambig_removed.log -o combined.log
+./bin/logcombiner -burnin 55 -log GTR/run1/All_data_align_for_GenBank_ambig_removed.log -log GTR/run2/All_data_align_for_GenBank_ambig_removed.log -log GTR/run3/All_data_align_for_GenBank_ambig_removed.log -log GTR/run4/All_data_align_for_GenBank_ambig_removed.log -log GTR/run5/All_data_align_for_GenBank_ambig_removed.log -log GTR/run6/All_data_align_for_GenBank_ambig_removed.log -log GTR/run7/All_data_align_for_GenBank_ambig_removed.log -log GTR/run9/All_data_align_for_GenBank_ambig_removed.log -log GTR/run10/All_data_align_for_GenBank_ambig_removed.log -o combined.log
 ```
 
 and trees like this  (for TN93):
@@ -62,11 +62,10 @@ and trees like this  (for TN93):
 
 and (for GTR):
 ```
-./bin/logcombiner -burnin 50 -log GTR/run1/All_data_align_for_GenBank_ambig_removed.trees -log GTR/run2/All_data_align_for_GenBank_ambig_removed.trees -log GTR/run3/All_data_align_for_GenBank_ambig_removed.trees -log GTR/run5/All_data_align_for_GenBank_ambig_removed.trees -log GTR/run6/All_data_align_for_GenBank_ambig_removed.trees -log GTR/run7/All_data_align_for_GenBank_ambig_removed.trees -o combined.trees
+./bin/logcombiner -burnin 55 -log GTR/run1/All_data_align_for_GenBank_ambig_removed.trees -log GTR/run2/All_data_align_for_GenBank_ambig_removed.trees -log GTR/run3/All_data_align_for_GenBank_ambig_removed.trees -log GTR/run4/All_data_align_for_GenBank_ambig_removed.trees -log GTR/run5/All_data_align_for_GenBank_ambig_removed.trees -log GTR/run6/All_data_align_for_GenBank_ambig_removed.trees -log GTR/run7/All_data_align_for_GenBank_ambig_removed.trees -log GTR/run9/All_data_align_for_GenBank_ambig_removed.trees -log GTR/run10/All_data_align_for_GenBank_ambig_removed.trees -o combined.trees
 
 ```
-
-Then after fixing radiata and nem_PM665_NOVO, each in 2 places, I summarized the trees like this (for TN):
+I summarized the trees like this (for TN):
 ```
 ./bin/treeannotator combined.trees TN_contree.tre
 ```
