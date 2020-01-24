@@ -69,7 +69,7 @@ I summarized the trees like this (for TN):
 ```
 ./bin/treeannotator combined.trees TN_contree.tre
 ```
-or this (for GTR I needed to get rid of a small bit (ie, 2%) from run1:
+or this (for GTR):
 ```
-./bin/treeannotator -burnin 2 combined.trees GTR_contree.tre
+./bin/treeannotator combined.trees GTR_contree.tre
 ```
