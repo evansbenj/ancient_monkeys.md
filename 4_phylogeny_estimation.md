@@ -64,9 +64,9 @@ and (for GTR):
 ./bin/logcombiner -burnin 55 -log GTR/run1/All_data_align_for_GenBank_ambig_removed.trees -log GTR/run2/All_data_align_for_GenBank_ambig_removed.trees -log GTR/run3/All_data_align_for_GenBank_ambig_removed.trees -log GTR/run4/All_data_align_for_GenBank_ambig_removed.trees -log GTR/run5/All_data_align_for_GenBank_ambig_removed.trees -log GTR/run6/All_data_align_for_GenBank_ambig_removed.trees -log GTR/run7/All_data_align_for_GenBank_ambig_removed.trees -log GTR/run9/All_data_align_for_GenBank_ambig_removed.trees -log GTR/run10/All_data_align_for_GenBank_ambig_removed.trees -o combined.trees
 
 ```
-I summarized the trees like this (for TN, after fixing cyclopsis and radiata):
+I summarized the trees like this (for TN, after fixing cyclopsis and radiata and adding a small 2% burnin to clean up run 1 based on tracer of log file):
 ```
-./bin/treeannotator combined.trees TN_contree.tre
+./bin/treeannotator -burnin 2 combined.trees TN_contree.tre
 ```
 or this (for GTR):
 ```
