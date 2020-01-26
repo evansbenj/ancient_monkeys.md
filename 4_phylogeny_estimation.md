@@ -45,7 +45,7 @@ in info I am in this directory:
 ```
 I summarize the logs like this (for TN93):
 ```
-./bin/logcombiner -burnin 45 -log TN93/run1/All_data_align_for_GenBank_ambig_removed.log -log TN93/run3/All_data_align_for_GenBank_ambig_removed.log -log TN93/run4/All_data_align_for_GenBank_ambig_removed.log -log TN93/run5/All_data_align_for_GenBank_ambig_removed.log -log TN93/run6/All_data_align_for_GenBank_ambig_removed.log -log TN93/run7/All_data_align_for_GenBank_ambig_removed.log -o combined.log
+./bin/logcombiner -burnin 55 -log TN93/run1/All_data_align_for_GenBank_ambig_removed.log -log TN93/run4/All_data_align_for_GenBank_ambig_removed.log -log TN93/run5/All_data_align_for_GenBank_ambig_removed.log -log TN93/run6/All_data_align_for_GenBank_ambig_removed.log -log TN93/run7/All_data_align_for_GenBank_ambig_removed.log -log TN93/run8/All_data_align_for_GenBank_ambig_removed.log -log TN93/run10/All_data_align_for_GenBank_ambig_removed.log -o combined.log
 
 ```
 and (for GTR):
@@ -56,8 +56,7 @@ and (for GTR):
 and trees like this  (for TN93):
 
 ```
-
-./bin/logcombiner -burnin 45 -log TN93/run1/All_data_align_for_GenBank_ambig_removed.trees -log  TN93/run3/All_data_align_for_GenBank_ambig_removed.trees -log TN93/run4/All_data_align_for_GenBank_ambig_removed.trees -log TN93/run5/All_data_align_for_GenBank_ambig_removed.trees -log TN93/run6/All_data_align_for_GenBank_ambig_removed.trees -log TN93/run7/All_data_align_for_GenBank_ambig_removed.trees -o combined.trees
+./bin/logcombiner -burnin 55 -log TN93/run1/All_data_align_for_GenBank_ambig_removed.trees -log  TN93/run4/All_data_align_for_GenBank_ambig_removed.trees -log TN93/run5/All_data_align_for_GenBank_ambig_removed.trees -log TN93/run6/All_data_align_for_GenBank_ambig_removed.trees -log TN93/run7/All_data_align_for_GenBank_ambig_removed.trees -log TN93/run8/All_data_align_for_GenBank_ambig_removed.trees -log TN93/run10/All_data_align_for_GenBank_ambig_removed.trees -o combined.trees
 ```
 
 and (for GTR):
