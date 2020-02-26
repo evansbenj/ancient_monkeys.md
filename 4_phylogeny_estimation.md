@@ -9,10 +9,10 @@ I am using iqtree version 1.4.o to make an ML phylogeny and also to select a mod
 ```
 
 ```
-iqtree -s All_data_align_for_GenBank_ambig_removed.nex -m TEST -nt 1 -pre All_data_align_for_GenBank_ambig_removed.nex_
+iqtree -s All_data_align_for_GenBank_PM_ambig_recombined_removed.nex -m TEST -nt 1 -pre All_data_align_for_GenBank_PM_ambig_recombined_removed_
 ```
 ```
-iqtree -s All_data_align_for_GenBank_ambig_removed.nex -m TIM+I+G4 -bb 1000
+iqtree -s All_data_align_for_GenBank_PM_ambig_recombined_removed.nex -m TIM3+I+G4 -bb 1000 -pre All_data_align_for_GenBank_PM_ambig_recombined_removed_boot
 ```
 
 
