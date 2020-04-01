@@ -265,3 +265,5 @@ The other thing I want to do is to put together a good nexus file with coding re
 I am working (among other places) on info in this directory: `/4/ben/2017_SEAsian_macaques`
 
 Also, raw data on graham is here '/scratch/ben/SEAsian_macaques_original_rawdata'
+
+or better yet here '/home/ben/projects/rrg-ben/ben/SEAsian_macaques_rawdata_MPIexpressions/'
