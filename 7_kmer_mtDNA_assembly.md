@@ -270,3 +270,28 @@ or better yet here `/home/ben/projects/rrg-ben/ben/SEAsian_macaques_rawdata_MPIe
 
 This is where the NOVOplasty genomes are (on graham):
 `/home/ben/scratch/SEAsian_macaques_original_rawdata/`
+
+# Coverage stats
+in this directory on graham:
+`/scratch/ben/SEAsian_macaques_original_rawdata/hecki_PF505`
+
+I can calculate coverage stats using this command: `sbatch bwa.sh Circularized_assembly_1_hecki_PF505_NOVO2.fasta Assembled_reads_hecki_PF505_NOVO2_R2.fasta Assembled_reads_hecki_PF505_NOVO2_R1.fasta`
+
+wheeere bwa.sh is this:
+```
+#!/bin/sh
+#SBATCH --job-name=bwa_505
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --time=24:00:00
+#SBATCH --mem=128gb
+#SBATCH --output=bwa505.%J.out
+#SBATCH --error=bwa505.%J.err
+#SBATCH --account=def-ben
+
+module load bwa
+module load samtools/1.10
+bwa index $1
+bwa mem $1 $2 $3 -t 4 | samtools view -Shu - | samtools sort - -o $1sorted.bam
+samtools depth -a -d 0 -r $1sorted.bam > $1sorted.bam.depth_per_base
+```
