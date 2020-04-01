@@ -293,5 +293,5 @@ module load bwa
 module load samtools/1.10
 bwa index $1
 bwa mem $1 $2 $3 -t 4 | samtools view -Shu - | samtools sort - -o $1sorted.bam
-samtools depth -a -d 0 -r $1sorted.bam > $1sorted.bam.depth_per_base
+samtools depth -a -d 0 $1sorted.bam > $1sorted.bam.depth_per_base
 ```
